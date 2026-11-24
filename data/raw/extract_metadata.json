@@ -1,0 +1,17 @@
+{
+  "extracted_at_utc": "2026-11-24T14:58:21.768475+00:00",
+  "source_table": "fato_churn_contrato",
+  "rows_raw": 69478,
+  "rows_deduplicated": 69478,
+  "duplicates_removed": 0,
+  "min_anomes_ativacao": "2014-03",
+  "max_anomes_ativacao": "2026-11",
+  "max_data_ativacao": "2026-11-23",
+  "max_data_cancelamento": "2026-11-23",
+  "depara_counts": {
+    "canais": 13,
+    "funcionarios": 79,
+    "bairros": 915,
+    "motivos": 34
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "start_month": "2024-01",
+  "last_closed_month": "2026-10",
+  "max_month_in_dw": "2026-11",
+  "closed_months_count": 34,
+  "carteira_inicial_2023_12": 14082,
+  "carteira_ultimo_mes_fechado": 33755,
+  "fpd_cutoff_month": "2026-08",
+  "anomalias_retirada_detectadas": [
+    {
+      "anomes": "2025-06",
+      "retiradas": 1710,
+      "churn_mad_zscore": 6.2519493623087765
+    },
+    {
+      "anomes": "2025-08",
+      "retiradas": 1065,
+      "churn_mad_zscore": 3.25987225383018
+    }
+  ],
+  "pesos_empiricos": [
+    {
+      "tipo_dia": "Dia Útil",
+      "qtd_dias": 709,
+      "media_vendas": 42.46403385049366,
+      "media_retiradas": 19.827926657263752,
+      "peso_teorico": 1.0,
+      "peso_empirico_vendas": 1.0,
+      "peso_empirico_retiradas": 1.0
+    },
+    {
+      "tipo_dia": "Sábado",
+      "qtd_dias": 141,
+      "media_vendas": 31.624113475177303,
+      "media_retiradas": 14.148936170212766,
+      "peso_teorico": 0.5,
+      "peso_empirico_vendas": 0.7447270220845885,
+      "peso_empirico_retiradas": 0.713586267227262
+    },
+    {
+      "tipo_dia": "Domingo",
+      "qtd_dias": 141,
+      "media_vendas": 4.5177304964539005,
+      "media_retiradas": 0.028368794326241134,
+      "peso_teorico": 0.0,
+      "peso_empirico_vendas": 0.10638957458351264,
+      "peso_empirico_retiradas": 0.0014307494079744602
+    },
+    {
+      "tipo_dia": "Feriado",
+      "qtd_dias": 44,
+      "media_vendas": 17.704545454545453,
+      "media_retiradas": 5.7272727272727275,
+      "peso_teorico": 0.0,
+      "peso_empirico_vendas": 0.41693037258022136,
+      "peso_empirico_retiradas": 0.2888487952508439
+    }
+  ]
+}

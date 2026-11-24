@@ -1,0 +1,9 @@
+modelo,config,usa_taxa_du,cv_rmse,cv_mape_pct,val_mae,val_rmse,val_mape_pct,val_r2,score
+ElasticNet_Taxa_DU,"ElasticNet(a=0.5,l1=0.8)",True,151.03,11.77,50.92,58.84,2.55,0.2479,4.856
+Ridge_Taxa_DU,Ridge(alpha=5.0),True,155.22,11.78,56.35,74.88,2.77,-0.2177,5.022
+ElasticNet_Direto,"ElasticNet(a=0.5,l1=0.8)",False,116.86,10.12,67.68,74.17,3.39,-0.1948,5.072
+Lasso_Taxa_DU,Lasso(alpha=0.5),True,167.34,12.86,67.52,74.3,3.44,-0.1991,5.794
+Ridge_Direto,Ridge(alpha=1.0),False,124.76,10.61,86.47,95.55,4.41,-0.9829,5.96
+Lasso_Direto,Lasso(alpha=5.0),False,128.05,10.13,104.07,118.11,5.31,-2.0296,6.514
+OLS_Direto,OLS,False,187.37,17.04,112.8,132.03,5.77,-2.7861,8.589
+OLS_Taxa_DU,OLS,True,248.47,24.27,102.61,118.89,5.24,-2.07,9.996

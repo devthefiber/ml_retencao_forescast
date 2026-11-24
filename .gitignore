@@ -1,0 +1,25 @@
+# Ambiente Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Segredos
+.env
+
+# Dados locais e snapshots pesados (gerados pelo pipeline)
+data/raw/*.parquet
+data/raw/*.csv
+data/processed/*.parquet
+data/processed/*.csv
+
+# Checkpoints Jupyter
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# Logs e MLflow local
+logs/
+mlruns/
+*.log

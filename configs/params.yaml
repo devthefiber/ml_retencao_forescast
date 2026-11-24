@@ -1,0 +1,95 @@
+# Configurações centrais do projeto ML Retenção Forecast (2027)
+project:
+  name: "ml-retencao-forecast"
+  version: "1.0.0"
+  description: "Previsão de Vendas, Retiradas (Cancelamentos) e Crescimento de Carteira para 2027 usando Regressão Linear"
+
+data:
+  start_month: "2024-01"
+  planta_base_cutoff: "2023-12"
+  exclude_incomplete_current_month: true
+  exclude_vendedor_padrao_vendas: true
+  fpd_maturation_days: 61
+  fpd_maturation_lag_months: 3
+
+calendar:
+  start_date: "2024-01-01"
+  end_date: "2027-12-31"
+  country: "BR"
+  state: "GO"
+  weights:
+    weekday: 1.0      # Segunda a Sexta (não feriado)
+    saturday: 0.5     # Sábado (não feriado)
+    sunday: 0.0       # Domingo
+    holiday: 0.0      # Feriado nacional, estadual (GO) ou municipal (Goiânia)
+  # Feriados municipais de Goiânia (fixos MM-DD) e datas operacionais móveis (Carnaval/Corpus Christi)
+  municipal_fixed_holidays:
+    - date: "05-24"
+      name: "Nossa Senhora Auxiliadora (Padroeira de Goiânia)"
+    - date: "10-24"
+      name: "Aniversário de Goiânia"
+  extra_movable_holidays:
+    # Carnaval (segunda e terça) e Corpus Christi — datas de impacto operacional
+    - date: "2024-02-12"
+      name: "Carnaval (Segunda)"
+    - date: "2024-02-13"
+      name: "Carnaval (Terça)"
+    - date: "2024-05-30"
+      name: "Corpus Christi"
+    - date: "2025-03-03"
+      name: "Carnaval (Segunda)"
+    - date: "2025-03-04"
+      name: "Carnaval (Terça)"
+    - date: "2025-06-19"
+      name: "Corpus Christi"
+    - date: "2026-02-16"
+      name: "Carnaval (Segunda)"
+    - date: "2026-02-17"
+      name: "Carnaval (Terça)"
+    - date: "2026-06-04"
+      name: "Corpus Christi"
+    - date: "2027-02-08"
+      name: "Carnaval (Segunda)"
+    - date: "2027-02-09"
+      name: "Carnaval (Terça)"
+    - date: "2027-05-27"
+      name: "Corpus Christi"
+
+anomalies:
+  # Detecção transparente de picos de baixa em lote de cancelamentos (limpeza de base IXC):
+  # Sinaliza meses em que retiradas superam em >= 1.65x a mediana local (janela de 5 meses)
+  # ou Z-score MAD > 3.5 sobre a taxa de churn da carteira.
+  churn_local_ratio_threshold: 1.65
+  churn_mad_zscore_threshold: 3.5
+
+modeling:
+  validation_months: 4          # Holdout out-of-time (últimos 4 meses fechados)
+  tscv_splits: 4                # Expanding-window TimeSeriesSplit no conjunto de treino
+  random_state: 42
+  ridge_alphas: [0.01, 0.1, 0.5, 1.0, 5.0, 10.0, 25.0, 50.0, 100.0]
+  lasso_alphas: [0.01, 0.05, 0.1, 0.5, 1.0, 5.0, 10.0]
+  elasticnet_alphas: [0.01, 0.1, 0.5, 1.0, 5.0]
+  elasticnet_l1_ratios: [0.2, 0.5, 0.8]
+
+forecast:
+  target_year: 2027
+  confidence_level: 0.90        # Intervalo de predição de 90%
+  scenarios:
+    Conservador:
+      descricao: "Manutenção da malha atual sem novos canais e ritmo conservador de abertura de bairros"
+      novos_bairros_ativos_mes: 1.0
+      novos_canais_adicionais: 0
+      fator_crescimento_vendas: 0.95
+      ajuste_retiradas_fator: 1.05
+    Base:
+      descricao: "Continuidade orgânica do patamar de 2026 com expansão moderada de bairros"
+      novos_bairros_ativos_mes: 4.0
+      novos_canais_adicionais: 0
+      fator_crescimento_vendas: 1.00
+      ajuste_retiradas_fator: 1.00
+    Expansao:
+      descricao: "Abertura acelerada de novos bairros + entrada de 1 novo canal comercial em 2027"
+      novos_bairros_ativos_mes: 9.0
+      novos_canais_adicionais: 1
+      fator_crescimento_vendas: 1.08
+      ajuste_retiradas_fator: 0.97

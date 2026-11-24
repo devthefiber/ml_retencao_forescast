@@ -1,0 +1,52 @@
+{
+  "target_year": 2027,
+  "last_closed_month_used": "2026-10",
+  "carteira_ultimo_mes_fechado": 33755.0,
+  "confidence_level": 0.9,
+  "champion_vendas": "ElasticNet_Taxa_DU",
+  "champion_retiradas": "ElasticNet_Direto_Limpo",
+  "cenarios_2027": {
+    "Conservador": {
+      "descricao": "Manutenção da malha atual sem novos canais e ritmo conservador de abertura de bairros",
+      "total_dias_uteis_ponderados_2027": 273.5,
+      "vendas_total_2027": 21377.0,
+      "vendas_media_mensal_2027": 1781.4,
+      "retiradas_total_2027": 13977.0,
+      "retiradas_media_mensal_2027": 1164.7,
+      "saldo_liquido_2027": 7400.0,
+      "carteira_inicio_2027": 35645.0,
+      "carteira_fim_2027": 43045.0,
+      "crescimento_carteira_2027_pct": 20.76,
+      "churn_medio_mensal_sobre_carteira_pct": 2.97,
+      "relacao_retirada_venda_2027_pct": 65.38
+    },
+    "Base": {
+      "descricao": "Continuidade orgânica do patamar de 2026 com expansão moderada de bairros",
+      "total_dias_uteis_ponderados_2027": 273.5,
+      "vendas_total_2027": 24430.0,
+      "vendas_media_mensal_2027": 2035.8,
+      "retiradas_total_2027": 13917.0,
+      "retiradas_media_mensal_2027": 1159.8,
+      "saldo_liquido_2027": 10513.0,
+      "carteira_inicio_2027": 35645.0,
+      "carteira_fim_2027": 46157.0,
+      "crescimento_carteira_2027_pct": 29.49,
+      "churn_medio_mensal_sobre_carteira_pct": 2.86,
+      "relacao_retirada_venda_2027_pct": 56.97
+    },
+    "Expansao": {
+      "descricao": "Abertura acelerada de novos bairros + entrada de 1 novo canal comercial em 2027",
+      "total_dias_uteis_ponderados_2027": 273.5,
+      "vendas_total_2027": 31106.0,
+      "vendas_media_mensal_2027": 2592.1,
+      "retiradas_total_2027": 15008.0,
+      "retiradas_media_mensal_2027": 1250.7,
+      "saldo_liquido_2027": 16098.0,
+      "carteira_inicio_2027": 35645.0,
+      "carteira_fim_2027": 51742.0,
+      "crescimento_carteira_2027_pct": 45.16,
+      "churn_medio_mensal_sobre_carteira_pct": 2.91,
+      "relacao_retirada_venda_2027_pct": 48.25
+    }
+  }
+}
